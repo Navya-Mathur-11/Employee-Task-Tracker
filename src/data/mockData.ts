@@ -14,7 +14,7 @@ export interface Employee {
 export const mockEmployees: Employee[] = [
   {
     id: 1,
-    name: 'John Doe',
+    name: 'Navya Mathur',
     role: 'Software Engineer',
     tasks: [
       {
