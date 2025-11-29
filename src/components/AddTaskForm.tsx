@@ -1,20 +1,18 @@
-import { useState } from 'react';
-import { Plus, CheckCircle2 } from 'lucide-react';
-import type { Task } from '../data/mockData';
+import { useState } from "react";
+import { Plus, CheckCircle2 } from "lucide-react";
+import type { Task } from "../data/mockData";
 
 interface AddTaskFormProps {
-  onAddTask: (task: Omit<Task, 'id'>) => void;
-  employeeId: number;
+  onAddTask: (task: Omit<Task, "id">) => void;
   employeeName: string;
 }
 
 export default function AddTaskForm({
   onAddTask,
-  employeeId,
   employeeName,
 }: AddTaskFormProps) {
-  const [title, setTitle] = useState('');
-  const [status, setStatus] = useState<Task['status']>('Pending');
+  const [title, setTitle] = useState("");
+  const [status, setStatus] = useState<Task["status"]>("Pending");
   const [isOpen, setIsOpen] = useState(false);
 
   const [showSuccess, setShowSuccess] = useState(false);
@@ -23,8 +21,8 @@ export default function AddTaskForm({
     e.preventDefault();
     if (title.trim()) {
       onAddTask({ title: title.trim(), status });
-      setTitle('');
-      setStatus('Pending');
+      setTitle("");
+      setStatus("Pending");
       setIsOpen(false);
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 2000);
@@ -77,7 +75,7 @@ export default function AddTaskForm({
         </label>
         <select
           value={status}
-          onChange={(e) => setStatus(e.target.value as Task['status'])}
+          onChange={(e) => setStatus(e.target.value as Task["status"])}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="Pending">Pending</option>
@@ -97,8 +95,8 @@ export default function AddTaskForm({
           type="button"
           onClick={() => {
             setIsOpen(false);
-            setTitle('');
-            setStatus('Pending');
+            setTitle("");
+            setStatus("Pending");
           }}
           className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
         >
@@ -108,4 +106,3 @@ export default function AddTaskForm({
     </form>
   );
 }
-
