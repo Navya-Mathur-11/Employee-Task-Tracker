@@ -72,7 +72,6 @@ export default function EmployeeList({
               )}
 
               <AddTaskForm
-                employeeId={employee.id}
                 employeeName={employee.name}
                 onAddTask={(task) => onAddTask(employee.id, task)}
               />
